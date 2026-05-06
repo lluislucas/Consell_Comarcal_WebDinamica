@@ -1,0 +1,27 @@
+@page
+@model ContribuentsModel
+@{
+    ViewData["Title"] = "Contribuents del poble";
+
+}
+
+<p>Llistat de contribuents.</p>
+<form>
+    <input type="text" name="cp" placeholder="introdueix el codi postal" />
+    <button type="submit">Buscar</button>
+</form>
+
+
+
+@foreach (var kvp in Model.habitatgesXcp)
+{
+    <h1>@kvp.Key</h1>
+    
+    @foreach (var cvp in kvp.Value)
+    {
+        <h2>@cvp.Value[0]["nomContribuent"] (@cvp.Key)<a
+            href="http://localhost:5095/Contribuents/HabitatgesContribuent/@cvp.Value[0]["dniContribuent"]/@cvp.Value[0]["codiPostal"]"><button>Habitatges
+            Contribuent</button></a> <a href="http://localhost:5095/Contribuents/RebutsContribuent/@cvp.Value[0]["dniContribuent"]/@cvp.Value[0]["codiPostal"]"href=""><button>Rebuts</button></a></h2>
+        }
+
+    }

@@ -1,0 +1,26 @@
+@page 
+@model HabitatgesModel
+@{
+    ViewData["Title"] = "Habitatges";
+
+}
+
+<p>Llistat d'habitatges.</p>
+<form>
+    <input type ="text" name="cp" placeholder="introdueix el codi postal" />
+    <button type ="submit">Buscar</button>
+</form>
+
+
+
+@foreach (var habitatge in Model.LlistaHabitatges)
+{
+
+<a href="/habitatges/@habitatge["identificador"]">@habitatge["identificador"]</a>
+    <br />
+    /*<p>@habitatge["adreca"]</p>
+    <p>@habitatge["poblacio"]</p>
+    <p>@habitatge["tipusImmoble"]</p>
+    <p>@habitatge["metresQuadrats"] m2</p>
+    <p>@habitatge["nomContribuent"]</p>*/
+}

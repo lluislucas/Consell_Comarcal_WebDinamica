@@ -1,0 +1,25 @@
+@page "/Habitatges/{id}"
+@model HabitatgesDetallModel
+@{
+    ViewData["Title"] = "Habitatges Detall";
+
+}
+
+<p>Detall habitatge @Model.Id</p>
+
+@if (Model.HabitatgeSeleccionat is not null)
+{
+    <p>@Model.HabitatgeSeleccionat?["identificador"]</p>
+    <p>@Model.HabitatgeSeleccionat?["adreca"]</p>
+    <p>@Model.HabitatgeSeleccionat?["poblacio"]</p>
+    <p>@Model.HabitatgeSeleccionat?["codiPostal"]</p>
+    <p>@Model.HabitatgeSeleccionat?["tipusImmoble"]</p>
+    <p>@Model.HabitatgeSeleccionat?["metresQuadrats"]</p>
+    <p>@Model.HabitatgeSeleccionat?["habitants"]</p>
+    <p>@Model.HabitatgeSeleccionat?["numMenors"]</p>
+    <p>@Model.HabitatgeSeleccionat?["nomContribuent"]</p>
+}
+else
+{
+    <p>No s'ha trobat l'habitatge.</p>
+}
