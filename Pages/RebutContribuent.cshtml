@@ -7,19 +7,74 @@
 
 <h1>Codi Postal població @Model.Cp</h1>
 <h1>Dni contribuent @Model.Dni</h1>
-
 <h2>Taxes del contribuent a @Model.Cp</h2>
 
 <fieldset style="border: 2px solid black; padding: 10px;">
-    <legend>Consell Comarcal -Taxa Especial sobre Habitatges</legend>
-    <p><strong>Nom:</strong> @Model.habitatgesXcp[Model.Cp][Model.Dni][0]["nomContribuent"]<p/>
-    <p><strong>Poblacio:</strong> @Model.habitatgesXcp[Model.Cp][Model.Dni][0]["poblacio"]<p/>
-    <p>Cases:<p/>
-    <p>Pisos:<p/>
-    <p>Terreny:<p/>
-    
-    <h2>QUOTA:</h2>
+    <legend>
+        Consell Comarcal - Taxa Especial sobre Habitatges
+    </legend>
 
+    <p>
+        <strong>
+            Nom:
+        </strong>
+        @Model.habitatgesXcp[Model.Cp][Model.Dni][0]["nomContribuent"]
+    </p>
+    <p>
+        <strong>
+            Poblacio:
+        </strong>
+        @Model.habitatgesXcp[Model.Cp][Model.Dni][0]["poblacio"]
+    </p>
+    <p>
+        <strong>
+            Cases:
+        </strong>
+        @Model.Num_casesTot
+        @if (Model.M2casesTot > 0)
+        {
+            <span>
+                - @Model.M2casesTot m
+                <sup>
+                    2
+                </sup>
+            </span>
+        }
+    </p>
+    <p>
+        <strong>
+            Pisos:
+        </strong>
+        @Model.Num_pisosTot
+        @if (Model.M2pisosTot > 0)
+        {
+            <span>
+                - @Model.M2pisosTot m
+                <sup>
+                    2
+                </sup>
+            </span>
+        }
+    </p>
+    <p>
+        <strong>
+            Terreny:
+        </strong>
+        @Model.Num_terrenysTot
+        @if (Model.M2terrenysTot > 0)
+        {
+            <span>
+                - @Model.M2terrenysTot m
+                <sup>
+                    2
+                </sup>
+            </span>
+        }
+    </p>
+
+    <h2>
+        QUOTA:
+    </h2>
 </fieldset>
 
 
