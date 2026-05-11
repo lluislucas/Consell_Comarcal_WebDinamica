@@ -9,15 +9,15 @@
 
 @if (Model.HabitatgeSeleccionat is not null)
 {
-    <p>@Model.HabitatgeSeleccionat?["identificador"]</p>
-    <p>@Model.HabitatgeSeleccionat?["adreca"]</p>
-    <p>@Model.HabitatgeSeleccionat?["poblacio"]</p>
-    <p>@Model.HabitatgeSeleccionat?["codiPostal"]</p>
-    <p>@Model.HabitatgeSeleccionat?["tipusImmoble"]</p>
-    <p>@Model.HabitatgeSeleccionat?["metresQuadrats"]</p>
-    <p>@Model.HabitatgeSeleccionat?["habitants"]</p>
-    <p>@Model.HabitatgeSeleccionat?["numMenors"]</p>
-    <p>@Model.HabitatgeSeleccionat?["nomContribuent"]</p>
+    <p> ID: @Model.HabitatgeSeleccionat?["identificador"]</p>
+    <p> Adreça: @Model.HabitatgeSeleccionat?["adreca"]</p>
+    <p> Poblacio: @Model.HabitatgeSeleccionat?["poblacio"]</p>
+    <p> CP: @Model.HabitatgeSeleccionat?["codiPostal"]</p>
+    <p>Tipus: @Model.HabitatgeSeleccionat?["tipusImmoble"]</p>
+    <p>M2:@Model.HabitatgeSeleccionat?["metresQuadrats"]</p>
+    <p>Residants: @Model.HabitatgeSeleccionat?["habitants"]</p>
+    <p>Menors: @Model.HabitatgeSeleccionat?["numMenors"]</p>
+    <p>Contribuent: @Model.HabitatgeSeleccionat?["nomContribuent"]</p>
 }
 else
 {

@@ -16,7 +16,7 @@
 @foreach (var habitatge in Model.LlistaHabitatges)
 {
 
-<a href="/habitatges/@habitatge["identificador"]">@habitatge["identificador"]</a>
+<a href="/habitatges/@habitatge["identificador"]">@habitatge["identificador"] - @habitatge["adreca"] (@habitatge["codiPostal"])</a>
     <br />
     /*<p>@habitatge["adreca"]</p>
     <p>@habitatge["poblacio"]</p>

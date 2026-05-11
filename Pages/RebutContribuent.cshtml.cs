@@ -23,7 +23,7 @@ public class RebutContribuentModel : PageModel
     public int M2casesTot = 0;
     public int M2pisosTot = 0;
     public int M2terrenysTot = 0;
-    public double Quotatotal = 0;
+    public double QuotaGeneral = 0;
 
     public RebutContribuentModel(ILogger<RebutContribuentModel> logger)
     {
@@ -70,29 +70,65 @@ public class RebutContribuentModel : PageModel
         for (int i = 0; i < habitatgesContribuent.Count; i++)
         {
             Console.WriteLine(habitatgesContribuent[i]["metresQuadrats"].GetType());
+
+            double quota_subtotal= 0;
+            double quota_total =0;
+            int m2DeLaPropietat = int.Parse(habitatgesContribuent[i]["metresQuadrats"].ToString());
+
             if (habitatgesContribuent[i]["tipusImmoble"].ToString() == "0" )// tipusImmoble[0])
             {
-                int m2DeLaCasa = int.Parse(habitatgesContribuent[i]["metresQuadrats"].ToString());
+                
                 Num_casesTot++;
-                M2casesTot += m2DeLaCasa;
-                int quota_casa= 0.998*m2DeLaCasa;
-                if(habitatgesContribuent[i]["habitantsImmoble"]>=5 )
+                M2casesTot += m2DeLaPropietat;
+                quota_subtotal= 0.998*m2DeLaPropietat;
+                double descompteFamiliaNumerosa =0;
+                double incrementMenors =0;
+
+                if (int.Parse(habitatgesContribuent[i]["habitantsImmoble"].ToString())>=5 )
                 {
-                    
+                     descompteFamiliaNumerosa = quota_subtotal*0.1;
                 }
+                 if (int.Parse(habitatgesContribuent[i]["numMenorsImmoble"].ToString())>0 )
+                {
+                     incrementMenors = quota_subtotal*0.05;
+                }
+
+                quota_total = quota_subtotal -descompteFamiliaNumerosa + incrementMenors;
+
             }
 
             if (habitatgesContribuent[i]["tipusImmoble"].ToString() == "1")
             {
                 Num_pisosTot++;
-                M2pisosTot += int.Parse(habitatgesContribuent[i]["metresQuadrats"].ToString());
+                M2pisosTot += m2DeLaPropietat;
+                quota_subtotal= 0.996*m2DeLaPropietat;
+                double descompteFamiliaNumerosa =0;
+                double incrementMenors =0;
+
+                if (int.Parse(habitatgesContribuent[i]["habitantsImmoble"].ToString())>=5 )
+                {
+                     descompteFamiliaNumerosa = quota_subtotal*0.1;
+                }
+                 if (int.Parse(habitatgesContribuent[i]["numMenorsImmoble"].ToString())>0 )
+                {
+                     incrementMenors = quota_subtotal*0.05;
+                }
+
+                quota_total = quota_subtotal -descompteFamiliaNumerosa + incrementMenors;
+
             }
 
             if (habitatgesContribuent[i]["tipusImmoble"].ToString() == "2")
             {
                 Num_terrenysTot++;
-                M2terrenysTot += int.Parse(habitatgesContribuent[i]["metresQuadrats"].ToString());
+                M2terrenysTot += m2DeLaPropietat;
+                quota_subtotal= 0.996*m2DeLaPropietat;
             }
+            if (habitatgesContribuent[i]["codiPostal"].ToString() == "17970" || habitatgesContribuent[i]["codiPostal"].ToString() == "17971" )
+            {
+                quota_total = quota_total-quota_subtotal*0.25;
+            }
+            QuotaGeneral += quota_total;
         }
 
 
